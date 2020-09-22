@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+{% set navigation_bar = [
+    ('/', 'upload', 'Upload'),
+    ('/gallery', 'gallery', 'Gallery'),
+    ('/about', 'about', 'About')
+] -%}
+
+{% set active_page = active_page|default('index') -%}
+
+<html lang="en">
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- Bootstrap CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="/static/styles.css" rel="stylesheet"/>
+
+        <title>Photo Adda</title>
+
+    </head>
+    <body>
+      <!--NAVBAR-->
+        <header>
+          <!--LOGO AND HEADER-->
+          <div class="navbar navbar-expand navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+              <a href="/" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <strong>Photo Adda</strong>
+                <!--LOGO AND HEADER END-->
+              </a>
+              <!--NAVBAR ITEMS-->
+              <ul class="navbar-nav">
+              {% for href, id, caption in navigation_bar %}
+                <li {% if id == active_page %}class="nav-item active"{% else %}class="nav-item"{% endif %}>
+                  <a class="nav-link" href="{{ href|e }}">{{ caption|e }}</a>
+                </li>
+              {% endfor %}
+              </ul>
+              <!--NAVBAR ITEMS END-->
+            </div>
+          </div>
+        </header>
+        <!--NAVBAR END-->
+
+        <div class="text-center" data-gr-c-s-loaded="true">
+              {% block body %}{% endblock %}
+        </div>
+
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+        <section class="jumbotron text-center">
+            <div class="container">
+                <div>
+                    <h1 class="jumbotron-heading">Gallery</h1>
+                </div>
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                {% for file in files %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <a href="static/files/{{ file }}"><img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="static/files/{{ file }}" data-holder-rendered="true"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock %}

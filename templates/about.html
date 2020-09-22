@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% set active_page = "about" %}
+
+{% block body %}
+    <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">About this website</h1>
+          <p class="lead text-muted">This site was created as a fun weekend project that will serve a limited practical purpose.<br><br>This website will be used for uploading photos, viewing them later, and voting on then once voting is open. Its target use case is at the weekly "Photo Adda" of Shahjalal University Photographers' Association (SUPA) where sharing photos from all kinds of devices (smartphones, memory cards, USB drives to name a few) can be a real pain in the butt. Shareit is a mess, no thumbnail via USB, slow and unreliable Bluetooth connection, Android USB connection nightmare - these are just a fraction of the problems that plagued the first hour or so of the Adda. Don't even get me started on weird device specific issues - some of them still haunt me in my dreams. These issues will hopefully be alleviated using this site.<br><br>Builiding this website has been an amazing journey for me. I've finally got the hang of bootstrap (At least I think I do. Because CSS is supposed to be a lot more difficult) and I'm starting to get comfortable with flask and web app development in general. It's still very much a work in progress. The voting system hasn't been implemented yet and there needs to be some kind of login to prevent multiple entries. I'd also like to add an upload progress bar (will probably need to learn js for that) and a domain in the local network if that's even possible.</p>
+          <p class="text-muted">permafrost06<br>25/09/2018</p>
+        </div>
+    </section>
+    <div class="container">
+      <form class="form-group" action="/about" enctype="multipart/form-data" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">I'd love to hear from you</h1>
+        <label for="feedback" class="sr-only">Your message</label>
+        <textarea id="feedback" name="feed" class="form-control form-control-lg" placeholder="Your message" autocomplete="off" rows="5"></textarea>
+        <label for="feedname" class="sr-only">Name (optional)</label>
+        <input id="feedname" name="name" class="form-control" placeholder="Name (optional)" autocomplete="off"><br>
+        <div class="row justify-content-center">
+          <div class="col-4 ">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

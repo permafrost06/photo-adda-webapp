@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% set active_page = "gallery" %}
+
+{% block body %}
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Gallery</h1>
+        </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+            {% for file in files %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="loading..." style="height: 225px; width: 100%; display: block; object-fit:cover;" src="static/files/{{ file }}" data-holder-rendered="true">
+                        <div class="card-body">
+                            <a href="static/files/{{ file }}" target="_blank">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-block">View</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+{% endblock %}

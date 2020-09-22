@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% set active_page = "upload" %}
+
+{% block body %}
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">{% if files %}Uploaded!{% else %}No files provided!{% endif %}</h1>
+      </div>
+    </section>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          {% for file in files %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <a href="static/files/{{ file }}"><img class="card-img-top" alt="loading..." style="height: 225px; width: 100%; display: block; object-fit:cover;" src="static/files/{{ file }}" data-holder-rendered="true"></a>
+                        <div class="card-body">
+                            <a href="static/files/{{ file }}" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary btn-block">View</button></a>
+                        </div>
+                    </div>
+                </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <a href="/gallery"><button class="btn btn-lg btn-outline-primary">View gallery</button></a>
+    <a href="/"><button class="btn btn-lg btn-outline-primary">Upload more</button></a>
+{% endblock %}
